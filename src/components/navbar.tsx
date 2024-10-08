@@ -95,21 +95,21 @@ export const Navbar = () => {
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === siteConfig.navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
-                }
-                href={item.href}
-                size="lg"
-              >
+              <Link color="foreground" href={item.href} size="lg">
                 {item.label}
               </Link>
             </NavbarMenuItem>
           ))}
+          <Button
+            isExternal
+            as={Link}
+            className="text-sm font-normal text-default-600 bg-default-100"
+            startContent={<HeartFilledIcon className="text-danger" />}
+            variant="flat"
+            onClick={handleDownload}
+          >
+            Porfolio
+          </Button>
         </div>
       </NavbarMenu>
     </NextUINavbar>
